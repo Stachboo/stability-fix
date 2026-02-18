@@ -1,0 +1,64 @@
+{
+  "common": {
+    "back_to_tool": "← RETOUR_AU_DIAGNOSTIC",
+    "algorithm_by": "ALGORITHM BY STABILITY TEAM",
+    "read_more": "LIRE PLUS →"
+  },
+  "sidebar": {
+    "title": "INDEX TECHNIQUE",
+    "links": {
+      "home": "Dashboard",
+      "jitter": "Jitter / Gigue",
+      "bufferbloat": "Bufferbloat",
+      "packet_loss": "Packet Loss",
+      "latency": "Latence"
+    }
+  },
+  "home": {
+    "title": "THE SPEED LIE",
+    "subtitle": "Test Jitter & Bufferbloat (Stabilité Réseau 2026)",
+    "description": "Stabilité Réseau 2026 - Diagnostic de Latence Réelle.",
+    "cards": {
+      "latency": { "title": "Latence Invisible", "description": "Les speedtests mesurent la vitesse, pas la consistance." },
+      "jitter": { "title": "Jitter Critique", "description": "La variance du signal (Gigue). Cause des lags inexpliqués." },
+      "bufferbloat": { "title": "Bufferbloat", "description": "Goulot d'étranglement matériel révélé par audit précis." }
+    },
+    "seo1": {
+      "title": "POURQUOI VOUS LAGEZ MALGRÉ LA FIBRE",
+      "p1": "Votre FAI vous vend du \"1 Gbps\". Vous payez. Vous lagez quand même.",
+      "p2": "Le problème n'est pas le DÉBIT. C'est la STABILITÉ.",
+      "highlight": "Stability Protocol mesure le JITTER (micro-coupures invisibles) que Speedtest.net ignore. Si votre ping saute de 15ms à 80ms brutalement, c'est un lag spike. Nous le détectons.",
+      "result": "Résultat : Vous savez ENFIN si le problème vient de :",
+      "items": ["Câble Ethernet défectueux", "Canal WiFi saturé", "Routeur qui s'étouffe (Bufferbloat)", "Mensonge du FAI"]
+    },
+    "seo2": {
+      "fix_title": "OPTIMISER VOTRE CONNEXION FIXE",
+      "mobile_title": "TROUVER LE BON SPOT (Mobile)",
+      "fix_desc": "Si la courbe est chaotique : changez de canal WiFi, passez au Cat 8, activez le QoS.",
+      "mobile_desc": "Sur 4G/5G, 2 mètres changent tout. Testez près d'une fenêtre, loin du micro-ondes."
+    }
+  },
+  "dashboard": {
+    "hero_title": "LE MENSONGE DU DÉBIT",
+    "hero_subtitle": "POURQUOI CE PROTOCOLE EXISTE",
+    "warning": "Les FAI vous vendent du '1 Gbps'. C'est du marketing. Pour le Gaming, la vitesse ne sert à rien sans la STABILITÉ.",
+    "mission": "Arrêtez le gaspillage. Trop de joueurs achètent des routeurs hors de prix alors qu'un simple réglage logiciel suffisait.",
+    "rules": {
+      "title": "NOTRE RÈGLE D'OR :",
+      "one": "1. SOFTWARE D'ABORD : Drivers, QoS, DNS. C'est gratuit.",
+      "two": "2. HARDWARE EN DERNIER RECOURS : Uniquement si la physique est en cause."
+    },
+    "intro_btn": "RÉVÉLER LA VÉRITÉ",
+    "analyzer_title": "PROTOCOLE DE STABILITÉ",
+    "analyzer_version": "V3.0 // ANALYSEUR Z",
+    "start_btn": "LANCER LE TEST (30s)",
+    "stop_btn": "STOP",
+    "stats": {
+      "jitter": "JITTER (GIGUE)",
+      "latency": "LATENCE MOYENNE",
+      "stability": "SCORE STABILITÉ",
+      "max_pic": "PIC MAX (LAG)",
+      "loss": "PACKET LOSS"
+    }
+  }
+}

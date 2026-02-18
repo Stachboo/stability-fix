@@ -1,0 +1,46 @@
+{
+  "common": {
+    "back_to_tool": "← BACK_TO_DIAGNOSTIC",
+    "algorithm_by": "ALGORITHM BY STABILITY TEAM",
+    "read_more": "READ_MORE →"
+  },
+  "home": {
+    "title": "THE SPEED LIE",
+    "subtitle": "Jitter & Bufferbloat Test (Network Stability 2026)",
+    "description": "2026 Network Stability - Real Latency Diagnosis.",
+    "cards": {
+      "latency": { "title": "Invisible Latency", "description": "Speedtests measure speed, not consistency." },
+      "jitter": { "title": "Critical Jitter", "description": "Signal variance (Gigue). The cause of unexplained lags." },
+      "bufferbloat": { "title": "Bufferbloat", "description": "Hardware bottleneck revealed by precise audit." }
+    }
+  },
+  "dashboard": {
+    "hero_title": "THE SPEED LIE",
+    "hero_subtitle": "WHY THIS PROTOCOL EXISTS",
+    "warning": "ISPs sell you '1 Gbps'. It's marketing. For Gaming, speed is worthless without STABILITY.",
+    "mission": "We built this tool for one reason: Stop the waste. Too many players buy overpriced routers when simple software tweaks would suffice.",
+    "rules": {
+      "title": "OUR GOLDEN RULE:",
+      "one": "1. SOFTWARE FIRST: Check Drivers, QoS, DNS. It's free.",
+      "two": "2. HARDWARE LAST: If physics is the cause, only then do we recommend specific gear."
+    },
+    "intro_btn": "REVEAL THE TRUTH",
+    "analyzer_title": "STABILITY PROTOCOL",
+    "analyzer_version": "LATENCY & JITTER ANALYZER V3.0",
+    "start_btn": "START TEST (30s)",
+    "stop_btn": "STOP",
+    "status_running": "ACQUIRING DATA...",
+    "status_done": "ANALYSIS COMPLETE",
+    "result_title": "TECHNICAL DIAGNOSTIC",
+    "share_btn": "SHARE MY SCORE",
+    "prompt_btn": "COPY EXPERT REPORT",
+    "prompt_copied": "COPIED !",
+    "stats": {
+      "jitter": "JITTER",
+      "latency": "AVG LATENCY",
+      "stability": "STABILITY SCORE",
+      "max_pic": "MAX SPIKE (LAG)",
+      "loss": "PACKET LOSS"
+    }
+  }
+}
