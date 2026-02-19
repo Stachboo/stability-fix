@@ -1,7 +1,7 @@
 import { getDictionary } from '@/get-dictionaries';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Activity, ArrowLeft } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 export async function generateStaticParams() {
   const locales = ['en', 'fr'];
@@ -16,51 +16,113 @@ export default async function GlossaryPage({
 }) {
   const { lang, slug } = await params;
   const dict = await getDictionary(lang as 'fr' | 'en');
-  
-  // Transformation du slug pour correspondre aux clés JSON (ex: packet-loss -> packet_loss)
+
   const key = slug.replace(/-/g, '_') as keyof typeof dict.glossary;
   const article = dict.glossary[key];
 
   if (!article) notFound();
 
+  const badgeColors: Record<string, string> = {
+    jitter:      'text-cyan-400 border-cyan-400/30 bg-cyan-400/5',
+    bufferbloat: 'text-red-400 border-red-400/30 bg-red-400/5',
+    packet_loss: 'text-orange-400 border-orange-400/30 bg-orange-400/5',
+  };
+
+  const ctaColors: Record<string, string> = {
+    jitter:      'bg-cyan-600 hover:bg-cyan-500',
+    bufferbloat: 'bg-red-600 hover:bg-red-500',
+    packet_loss: 'bg-orange-600 hover:bg-orange-500',
+  };
+
+  const badgeColor = badgeColors[key] ?? 'text-cyan-400 border-cyan-400/30 bg-cyan-400/5';
+  const ctaColor   = ctaColors[key]   ?? 'bg-cyan-600 hover:bg-cyan-500';
+
   return (
     <article className="max-w-3xl animate-in fade-in duration-700">
-      <div className="flex items-center gap-2 text-[10px] font-mono text-gray-600 uppercase tracking-widest mb-12">
-        <Link href={`/${lang}`} className="hover:text-[#22D3EE]">Home</Link>
-        <span>/</span>
-        <span className="text-white">{slug}</span>
+
+      {/* RETOUR INDEX */}
+      <div className="mb-8">
+        <Link
+          href={`/${lang}/glossary`}
+          className="text-[10px] font-mono text-gray-500 hover:text-[#22D3EE] transition-colors uppercase tracking-widest"
+        >
+          ← {lang === 'fr' ? "Retour à l'index" : 'Back to index'}
+        </Link>
       </div>
 
-      <header className="mb-12">
-        <h1 className="text-5xl font-black text-white mb-6 tracking-tighter italic uppercase">
+      {/* HEADER */}
+      <header className="mb-10">
+        <h1 className="text-5xl font-black text-white mb-3 tracking-tighter italic">
           {article.title}
         </h1>
-        <div className="h-1 w-20 bg-[#22D3EE]"></div>
+        <span className={`inline-block text-[10px] font-black uppercase tracking-widest border px-3 py-1 rounded-full ${badgeColor}`}>
+          {article.badge}
+        </span>
       </header>
 
-      <div className="relative group">
-        <div className="absolute -inset-0.5 bg-[#22D3EE]/10 rounded-2xl blur opacity-20 transition duration-1000"></div>
-        <div className="relative bg-[#050505] border border-white/5 p-10 rounded-2xl">
-          <p className="text-xl text-gray-300 leading-relaxed font-medium italic">
-            "{article.content}"
-          </p>
+      {/* INTRO */}
+      <p className="text-gray-300 text-lg leading-relaxed mb-10">
+        {article.intro}
+      </p>
 
-          <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#22D3EE]/5 flex items-center justify-center border border-[#22D3EE]/20">
-                <Activity className="w-5 h-5 text-[#22D3EE] animate-pulse" />
-              </div>
-              <p className="text-[10px] font-mono text-gray-500 uppercase">System_State: Verified</p>
-            </div>
-            <Link 
-              href={`/${lang}`}
-              className="text-[10px] font-mono text-[#22D3EE] border border-[#22D3EE]/30 px-4 py-2 rounded hover:bg-[#22D3EE] hover:text-black transition-all"
-            >
-              RUN_DIAGNOSTIC
-            </Link>
-          </div>
-        </div>
+      {/* BLOC ENCADRÉ */}
+      <div className="bg-[#0a0f1a] border-l-4 border-[#22D3EE] p-6 rounded-r-xl mb-10">
+        <p className="text-white font-bold mb-3">{article.block_title}</p>
+        <p className="text-gray-400 text-sm leading-relaxed">{article.block_content}</p>
       </div>
+
+      {/* SECTION PRINCIPALE */}
+      <div className="mb-10 space-y-4">
+        <p className="text-white font-bold uppercase tracking-widest text-sm">{article.section_title}</p>
+        {article.section_intro && (
+          <p className="text-gray-400 text-sm leading-relaxed">{article.section_intro}</p>
+        )}
+        {article.section_items && article.section_items.length > 0 && (
+          <ul className="space-y-3">
+            {article.section_items.map((item: string, i: number) => (
+              <li key={i} className="flex gap-3 text-sm text-gray-300">
+                <span className="text-[#22D3EE] font-black shrink-0">▸</span>
+                <span dangerouslySetInnerHTML={{ __html: item }} />
+              </li>
+            ))}
+          </ul>
+        )}
+        {article.section_outro && (
+          <p className="text-gray-500 text-sm italic">{article.section_outro}</p>
+        )}
+      </div>
+
+      {/* DIAGNOSTIC / FIX */}
+      {article.diag_title && (
+        <div className="mb-10 space-y-3">
+          <p className="text-white font-bold uppercase tracking-widest text-sm">{article.diag_title}</p>
+          <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">{article.diag_content}</p>
+          {article.diag_note && (
+            <p className="text-gray-500 text-sm italic">{article.diag_note}</p>
+          )}
+        </div>
+      )}
+
+      {/* CTA BLOC */}
+      <div className="bg-[#050505] border border-white/10 p-8 rounded-2xl mt-12">
+        <p className="text-white font-bold mb-2">{article.cta_title}</p>
+        <p className="text-gray-500 text-sm mb-6">{article.cta_desc}</p>
+        <Link
+          href={`/${lang}`}
+          className={`inline-block px-6 py-3 rounded-lg text-white font-black text-sm uppercase tracking-widest transition-all ${ctaColor}`}
+        >
+          {article.cta_btn}
+        </Link>
+      </div>
+
+      {/* FOOTER */}
+      <div className="mt-10 flex items-center gap-4">
+        <div className="w-8 h-8 rounded-full bg-[#22D3EE]/5 flex items-center justify-center border border-[#22D3EE]/20">
+          <Activity className="w-4 h-4 text-[#22D3EE] animate-pulse" />
+        </div>
+        <p className="text-[10px] font-mono text-gray-600 uppercase">System_State: Verified</p>
+      </div>
+
     </article>
   );
 }

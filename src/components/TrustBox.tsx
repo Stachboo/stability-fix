@@ -1,23 +1,27 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 
-export default function TrustBox() {
-  // Référence pour permettre à l'API Trustpilot de cibler cet élément précis
+interface TrustBoxProps {
+  lang: 'fr' | 'en';
+}
+
+export default function TrustBox({ lang }: TrustBoxProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const trustLocale = lang === 'fr' ? 'fr-FR' : 'en-US';
 
   useEffect(() => {
-    // Si la fenêtre possède l'objet Trustpilot (chargé via layout.tsx), on initialise le widget
     if (typeof window !== "undefined" && (window as any).Trustpilot) {
       (window as any).Trustpilot.loadFromElement(ref.current, true);
     }
-  }, []);
+  }, [lang]);
 
   return (
     <div className="w-full flex justify-center my-8">
       <div
         ref={ref}
         className="trustpilot-widget w-full max-w-[400px] transition-all duration-500"
-        data-locale="en-US"
+        data-locale={trustLocale}
         data-template-id="56278e9abfbbba0bdcd568bc"
         data-businessunit-id="6990792845c20b813450a662"
         data-style-height="52px"

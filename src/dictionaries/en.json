@@ -4,16 +4,87 @@
     "algorithm_by": "ALGORITHM BY STABILITY TEAM",
     "read_more": "READ_MORE →"
   },
-  "home": {
-    "title": "THE SPEED LIE",
-    "subtitle": "Jitter & Bufferbloat Test (Network Stability 2026)",
-    "description": "2026 Network Stability - Real Latency Diagnosis.",
-    "cards": {
-      "latency": { "title": "Invisible Latency", "description": "Speedtests measure speed, not consistency." },
-      "jitter": { "title": "Critical Jitter", "description": "Signal variance (Gigue). The cause of unexplained lags." },
-      "bufferbloat": { "title": "Bufferbloat", "description": "Hardware bottleneck revealed by precise audit." }
+  "sidebar": {
+    "title": "TECHNICAL INDEX",
+    "links": {
+      "home": "Dashboard",
+      "jitter": "Jitter / Variance",
+      "bufferbloat": "Bufferbloat",
+      "packet_loss": "Packet Loss",
+      "latency": "Latency"
     }
   },
+"home": {
+  "title": "THE SPEED LIE",
+  "subtitle": "Jitter & Bufferbloat Test (Network Stability 2026)",
+  "description": "2026 Network Stability - Real Latency Diagnosis.",
+  "cards": {
+    "latency": {
+      "title": "Invisible Latency",
+      "description": "Speedtests measure speed, not consistency. A 100ms micro-cut (Packet Loss) is fatal for you.",
+      "tag": "System_Audit_Required"
+    },
+    "jitter": {
+      "title": "Critical Jitter",
+      "description": "Signal variance (Jitter). The mathematical cause of robotic voices and unexplained lags.",
+      "tag": "Variance_Detected"
+    },
+    "bufferbloat": {
+      "title": "Bufferbloat",
+      "description": "When your router chokes. A hardware bottleneck only a precise audit can reveal.",
+      "tag": "Hardware_Congestion"
+    }
+  },
+  "seo1": {
+    "title": "WHY YOU LAG DESPITE FIBER",
+    "p1": "Your ISP sells you '1 Gbps'. You pay. You still lag.",
+    "p2": "The problem isn't SPEED. It's STABILITY.",
+    "p3": "A classic speedtest takes a photo. We film in 4K.",
+    "highlight": "Stability Protocol measures JITTER (invisible micro-cuts) that Speedtest.net ignores. If your ping jumps from 15ms to 80ms, that's a lag spike. We detect it. They don't.",
+    "result": "Result: You FINALLY know if the problem comes from:",
+    "items": ["Your faulty Ethernet cable", "Your saturated WiFi channel", "Your choking router (Bufferbloat)", "Your ISP lying"],
+    "cta": "Test for 30 seconds. No bullshit marketing."
+  },
+  "seo2": {
+    "fix_title": "OPTIMIZE YOUR FIXED CONNECTION",
+    "fix_subtitle": "YOU FOUND THE CULPRIT",
+    "fix_intro": "Run the test. Watch the curve in real time.",
+    "fix_condition": "If it's chaotic:",
+    "fix_steps": [
+      "Change your WiFi channel (from 6 to 11)",
+      "Replace Cat 5 Ethernet cable with Cat 8",
+      "Enable QoS on your router",
+      "Switch to Cloudflare DNS (1.1.1.1)"
+    ],
+    "fix_retest": "Run the test again.",
+    "fix_result": "If the curve smooths out = you just gained 20ms without changing your plan.",
+    "fix_outro": "That's what we call \"stabilizing the signal\".",
+    "mobile_title": "FIND THE RIGHT SPOT (Mobile)",
+    "mobile_subtitle": "THE NETWORK IS A PHYSICS PROBLEM",
+    "mobile_intro": "On 4G/5G, 2 meters change everything.",
+    "mobile_physics": "Concrete blocks. Waves bounce. Microwaves interfere.",
+    "mobile_condition": "Test while moving:",
+    "mobile_steps": [
+      "Near a window (better signal)",
+      "Away from neighboring router (less interference)",
+      "On the upper floor (fewer walls)"
+    ],
+    "mobile_result": "Curve turns green? You found your \"Zero Point\". Bookmark that spot.",
+    "mobile_outro": "We've stabilized 4G connections to 12ms jitter just by changing rooms."
+  },
+  "seo3": {
+    "title": "HOW IT WORKS (Without the Bullshit)",
+    "intro": "Our algorithm analyzes inter-packet VARIANCE.",
+    "bad_label": "Speedtest.net:",
+    "bad_desc": "Takes 3 readings, averages them, tells you \"GG\".",
+    "good_label": "Stability Protocol:",
+    "good_desc": "Takes 300 readings, detects micro-cuts, shows you the raw truth.",
+    "filter": "We use a Savitzky-Golay filter (Master-level mathematics) to separate NOISE from the real SIGNAL.",
+    "use_case_intro": "If your score is high here, your connection will hold under any critical load:",
+    "use_cases": ["Competitive Gaming (Valorant, CS2, Fortnite)", "High-frequency trading", "4K streaming without cuts"],
+    "outro": "No approximation. Just facts."
+  }
+},
   "dashboard": {
     "hero_title": "THE SPEED LIE",
     "hero_subtitle": "WHY THIS PROTOCOL EXISTS",
@@ -41,6 +112,73 @@
       "stability": "STABILITY SCORE",
       "max_pic": "MAX SPIKE (LAG)",
       "loss": "PACKET LOSS"
+    }
+  },
+  "glossary": {
+    "jitter": {
+    "title": "Jitter",
+    "badge": "CRITICAL GAMING ANOMALY",
+    "summary": "The variance in latency time. The #1 enemy of competitive gaming.",
+    "intro": "Jitter is not about speed — it's about stability. It's the variation in latency (Ping) between each data packet.",
+    "block_title": "The Train Analogy",
+    "block_content": "Imagine a train that should arrive every 10 minutes. If the first arrives at 10:00, the second at 10:20, and the third at 10:21... the average is fine, but the service is unusable. That's Jitter.",
+    "section_title": "Why is it fatal for Gaming?",
+    "section_intro": "In a competitive game (Valorant, CS2, LoL), the server predicts your position. If your packets arrive irregularly (high Jitter), the server no longer knows where you are. Result:",
+    "section_items": [
+      "<strong>Rubberbanding</strong>: You move forward, then get teleported back.",
+      "<strong>Desync</strong>: You shoot an enemy, but the server rejects the shot.",
+      "<strong>Robotic Voice</strong>: On Discord, voice packets arrive out of order."
+    ],
+    "section_outro": null,
+    "diag_title": "How to fix Jitter?",
+    "diag_content": "1. Switch to Ethernet (Cable): WiFi is the #1 cause of Jitter (interference).\n2. Enable QoS: On your router, prioritize Gaming traffic.\n3. Change DNS: Sometimes bad routing creates instability.",
+    "diag_note": null,
+    "cta_title": "Is your connection stable?",
+    "cta_desc": "Classic speedtests smooth out results and hide Jitter. Use our professional tool to measure the real variance.",
+    "cta_btn": "RUN A JITTER DIAGNOSTIC",
+    "content": "Jitter is the variance in time delay between data packets over a network. High jitter causes instability in gaming and voice calls."
+  },
+  "bufferbloat": {
+    "title": "Bufferbloat",
+    "badge": "ROUTER CONGESTION",
+    "summary": "When your router chokes under load. The cause of lag when someone watches Netflix.",
+    "intro": "Bufferbloat is the hidden increase in your ping when your connection is fully used (download or streaming). It's like trying to talk in a crowded room.",
+    "block_title": "The classic symptom",
+    "block_content": "Everything is fine (20ms ping). Suddenly, someone starts a 4K video or a network update. Your ping instantly jumps to 400ms. That's Bufferbloat.",
+    "section_title": "Why does it happen?",
+    "section_intro": "Modern routers have too much \"buffer memory\" (Buffer). They store packets in a queue instead of processing them fast. Result: a huge queue builds up, and your gaming packets get stuck behind the download.",
+    "section_items": [],
+    "section_outro": null,
+    "diag_title": "The Solution: SQM (Smart Queue Management)",
+    "diag_content": "The real solution isn't \"more bandwidth\" — it's better queue management.\n1. Limit bandwidth: Cap your connection at 95% of max capacity to prevent the buffer from filling.\n2. Enable SQM / QoS: On high-end routers (Asus Merlin, OpenWRT), SQM prioritizes small packets (Gaming/Voice) over large ones (Downloads).",
+    "diag_note": null,
+    "cta_title": "Test your load resistance",
+    "cta_desc": "Our tool simulates intense network load to see if your router collapses. Do you score A+ or F?",
+    "cta_btn": "TEST BUFFERBLOAT",
+    "content": "Bufferbloat occurs when a router buffers too much data, creating artificial latency. It's a hardware-level bottleneck."
+  },
+  "packet_loss": {
+    "title": "Packet Loss",
+    "badge": "LOST DATA",
+    "summary": "Data lost in transit. Causes teleportation effects and disconnections.",
+    "intro": "Packet Loss occurs when part of the data you send (shots, movements) never reaches the server. It's the digital \"black hole\".",
+    "block_title": "The \"Teleportation\" Effect",
+    "block_content": "Unlike high Ping (everything is slow), Packet Loss creates ruptures. You're running, and suddenly you're snapped 3 meters back. Why? Because the server never received the \"I'm moving\" message and resets you to your last known position.",
+    "section_title": "The Usual Suspects",
+    "section_intro": null,
+    "section_items": [
+      "<strong>Unstable WiFi</strong>: Signal passing through walls = packet loss.",
+      "<strong>Damaged Ethernet cable</strong>: A pinched cable or wrong category (old Cat 5).",
+      "<strong>Saturated ISP</strong>: The connection node in your neighborhood is full."
+    ],
+    "section_outro": null,
+    "diag_title": "How to diagnose?",
+    "diag_content": "Open a command prompt (CMD) and type `ping google.com -n 100`. If you see \"Request timed out\", you have Packet Loss.",
+    "diag_note": "For Gaming, even 1% loss is unacceptable.",
+    "cta_title": "Check your line integrity",
+    "cta_desc": "Our test analyzes signal continuity over 10 seconds to detect micro-cuts invisible to classic speedtests.",
+    "cta_btn": "DETECT PACKET LOSS",
+    "content": "Packet loss happens when data units fail to reach their destination. It results in 'teleporting' or disconnected sessions."
     }
   }
 }

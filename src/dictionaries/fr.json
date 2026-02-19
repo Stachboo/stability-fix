@@ -14,30 +14,77 @@
       "latency": "Latence"
     }
   },
-  "home": {
-    "title": "THE SPEED LIE",
-    "subtitle": "Test Jitter & Bufferbloat (Stabilité Réseau 2026)",
-    "description": "Stabilité Réseau 2026 - Diagnostic de Latence Réelle.",
-    "cards": {
-      "latency": { "title": "Latence Invisible", "description": "Les speedtests mesurent la vitesse, pas la consistance." },
-      "jitter": { "title": "Jitter Critique", "description": "La variance du signal (Gigue). Cause des lags inexpliqués." },
-      "bufferbloat": { "title": "Bufferbloat", "description": "Goulot d'étranglement matériel révélé par audit précis." }
+"home": {
+  "title": "THE SPEED LIE",
+  "subtitle": "Test Jitter & Bufferbloat (Stabilité Réseau 2026)",
+  "description": "Stabilité Réseau 2026 - Diagnostic de Latence Réelle.",
+  "cards": {
+    "latency": {
+      "title": "Latence Invisible",
+      "description": "Les speedtests mesurent la vitesse, pas la consistance. Une micro-coupure de 100ms (Packet Loss) est fatale pour vous.",
+      "tag": "System_Audit_Required"
     },
-    "seo1": {
-      "title": "POURQUOI VOUS LAGEZ MALGRÉ LA FIBRE",
-      "p1": "Votre FAI vous vend du \"1 Gbps\". Vous payez. Vous lagez quand même.",
-      "p2": "Le problème n'est pas le DÉBIT. C'est la STABILITÉ.",
-      "highlight": "Stability Protocol mesure le JITTER (micro-coupures invisibles) que Speedtest.net ignore. Si votre ping saute de 15ms à 80ms brutalement, c'est un lag spike. Nous le détectons.",
-      "result": "Résultat : Vous savez ENFIN si le problème vient de :",
-      "items": ["Câble Ethernet défectueux", "Canal WiFi saturé", "Routeur qui s'étouffe (Bufferbloat)", "Mensonge du FAI"]
+    "jitter": {
+      "title": "Jitter Critique",
+      "description": "La variance du signal (Gigue). C'est la cause mathématique des voix robotiques et des lags inexpliqués.",
+      "tag": "Variance_Detected"
     },
-    "seo2": {
-      "fix_title": "OPTIMISER VOTRE CONNEXION FIXE",
-      "mobile_title": "TROUVER LE BON SPOT (Mobile)",
-      "fix_desc": "Si la courbe est chaotique : changez de canal WiFi, passez au Cat 8, activez le QoS.",
-      "mobile_desc": "Sur 4G/5G, 2 mètres changent tout. Testez près d'une fenêtre, loin du micro-ondes."
+    "bufferbloat": {
+      "title": "Bufferbloat",
+      "description": "Quand votre routeur s'étouffe. Un goulot d'étranglement matériel que seul un audit précis peut révéler.",
+      "tag": "Hardware_Congestion"
     }
   },
+  "seo1": {
+    "title": "POURQUOI VOUS LAGEZ MALGRÉ LA FIBRE",
+    "p1": "Votre FAI vous vend \"1 Gbps\". Vous payez. Vous lag quand même.",
+    "p2": "Le problème n'est pas la VITESSE. C'est la STABILITÉ.",
+    "p3": "Un speedtest classique prend une photo. Nous filmons en 4K.",
+    "highlight": "Stability Protocol mesure le JITTER (micro-coupures invisibles) que Speedtest.net ignore. Si votre ping passe de 15ms à 80ms brutalement, c'est du lag spike. On le détecte. Eux non.",
+    "result": "Résultat : Vous savez ENFIN si le problème vient de :",
+    "items": ["Votre câble Ethernet pourri", "Votre canal WiFi saturé", "Votre routeur qui s'étouffe (Bufferbloat)", "Votre FAI qui ment"],
+    "cta": "Testez 30 secondes. Pas de bullshit marketing."
+  },
+  "seo2": {
+    "fix_title": "OPTIMISER VOTRE CONNEXION FIXE",
+    "fix_subtitle": "VOUS AVEZ TROUVÉ LE COUPABLE",
+    "fix_intro": "Lancez le test. Regardez la courbe en temps réel.",
+    "fix_condition": "Si elle est chaotique :",
+    "fix_steps": [
+      "Changez votre canal WiFi (de 6 à 11)",
+      "Remplacez le câble Ethernet Cat 5 par du Cat 8",
+      "Activez le QoS sur votre routeur",
+      "Passez aux DNS Cloudflare (1.1.1.1)"
+    ],
+    "fix_retest": "Relancez le test.",
+    "fix_result": "Si la courbe se lisse = vous venez de gagner 20ms sans changer d'abonnement.",
+    "fix_outro": "C'est ce qu'on appelle \"stabiliser le signal\".",
+    "mobile_title": "TROUVER LE BON SPOT (Mobile)",
+    "mobile_subtitle": "LE RÉSEAU EST UNE QUESTION DE PHYSIQUE",
+    "mobile_intro": "En 4G/5G, 2 mètres changent tout.",
+    "mobile_physics": "Le béton bloque. Les ondes rebondissent. Les micro-ondes interfèrent.",
+    "mobile_condition": "Testez en vous déplaçant :",
+    "mobile_steps": [
+      "Près d'une fenêtre (signal meilleur)",
+      "Loin du routeur voisin (moins d'interférences)",
+      "À l'étage supérieur (moins de murs)"
+    ],
+    "mobile_result": "La courbe devient verte ? Vous avez trouvé votre \"Point Zero\". Bookmarkez cette position.",
+    "mobile_outro": "Nous avons stabilisé des connexions 4G à 12ms de jitter juste en changeant de pièce."
+  },
+  "seo3": {
+    "title": "COMMENT ÇA MARCHE (Sans le Bullshit)",
+    "intro": "Notre algorithme analyse la VARIANCE inter-paquets.",
+    "bad_label": "Speedtest.net :",
+    "bad_desc": "Fait 3 mesures, fait la moyenne, te dit \"GG\".",
+    "good_label": "Stability Protocol :",
+    "good_desc": "Fait 300 mesures, détecte les micro-coupures, te montre la vérité brute.",
+    "filter": "Nous utilisons un filtre Savitzky-Golay (mathématiques de niveau Master) pour séparer le BRUIT du SIGNAL réel.",
+    "use_case_intro": "Si votre score est élevé ici, votre connexion tiendra sous n'importe quelle charge critique :",
+    "use_cases": ["Gaming compétitif (Valorant, CS2, Fortnite)", "Trading haute fréquence", "Streaming 4K sans coupure"],
+    "outro": "Pas d'approximation. Juste des faits."
+  }
+},
   "dashboard": {
     "hero_title": "LE MENSONGE DU DÉBIT",
     "hero_subtitle": "POURQUOI CE PROTOCOLE EXISTE",
@@ -50,7 +97,7 @@
     },
     "intro_btn": "RÉVÉLER LA VÉRITÉ",
     "analyzer_title": "PROTOCOLE DE STABILITÉ",
-    "analyzer_version": "V3.0 // ANALYSEUR Z",
+    "analyzer_version": "V3.0",
     "start_btn": "LANCER LE TEST (30s)",
     "stop_btn": "STOP",
     "stats": {
@@ -60,5 +107,72 @@
       "max_pic": "PIC MAX (LAG)",
       "loss": "PACKET LOSS"
     }
-  }
+  },
+  "glossary": {
+    "jitter": {
+    "title": "Jitter (Gigue)",
+    "badge": "ANOMALIE CRITIQUE GAMING",
+    "summary": "La variance du temps de latence. L'ennemi n°1 du gaming compétitif.",
+    "intro": "Le Jitter (ou Gigue en français) n'est pas la vitesse, c'est la stabilité. C'est la variation du temps de latence (Ping) entre chaque paquet de données.",
+    "block_title": "L'Analogie du Train",
+    "block_content": "Imaginez un train qui doit arriver toutes les 10 minutes. Si le premier arrive à 10h00, le second à 10h20, et le troisième à 10h21... la moyenne est bonne, mais le service est inutilisable. C'est ça, le Jitter.",
+    "section_title": "Pourquoi est-ce fatal pour le Gaming ?",
+    "section_intro": "Dans un jeu compétitif (Valorant, CS2, LoL), le serveur prédit votre position. Si vos paquets arrivent de manière irrégulière (Jitter élevé), le serveur ne sait plus où vous êtes. Résultat :",
+    "section_items": [
+      "<strong>Rubberbanding</strong> : Vous avancez, puis vous êtes téléporté en arrière.",
+      "<strong>Desync</strong> : Vous tirez sur un ennemi, mais le serveur rejette le tir.",
+      "<strong>Voix Robotique</strong> : Sur Discord, les paquets vocaux arrivent dans le désordre."
+    ],
+    "section_outro": null,
+    "diag_title": "Comment fixer le Jitter ?",
+    "diag_content": "1. Passez en Ethernet (Câble) : Le WiFi est la cause n°1 du Jitter (interférences).\n2. Activez le QoS : Sur votre routeur, donnez la priorité au trafic Gaming.\n3. Changez de DNS : Parfois, un mauvais routage crée de l'instabilité.",
+    "diag_note": null,
+    "cta_title": "Votre connexion est-elle stable ?",
+    "cta_desc": "Les speedtests classiques lissent les résultats et cachent le Jitter. Utilisez notre outil professionnel pour mesurer la variance réelle.",
+    "cta_btn": "LANCER UN DIAGNOSTIC JITTER",
+    "content": "Le Jitter est la variance du temps de latence entre paquets. Un Jitter élevé rend votre connexion instable et imprévisible."
+  },
+  "bufferbloat": {
+    "title": "Bufferbloat",
+    "badge": "CONGESTION ROUTEUR",
+    "summary": "Quand votre routeur s'étouffe sous la charge. La cause des lags quand quelqu'un regarde Netflix.",
+    "intro": "Le Bufferbloat est l'augmentation latente de votre ping lorsque votre connexion est utilisée à fond (téléchargement ou streaming). C'est comme essayer de parler dans une pièce bondée.",
+    "block_title": "Le symptôme classique",
+    "block_content": "Tout va bien (20ms de ping). Soudain, quelqu'un lance une vidéo 4K ou une mise à jour sur le réseau. Votre ping bondit instantanément à 400ms. C'est du Bufferbloat.",
+    "section_title": "Pourquoi ça arrive ?",
+    "section_intro": "Les routeurs modernes ont trop de \"mémoire tampon\" (Buffer). Ils stockent les paquets en attente au lieu de les jeter ou de les traiter vite. Résultat : une file d'attente énorme se crée, et vos paquets de jeu sont coincés derrière le téléchargement.",
+    "section_items": [],
+    "section_outro": null,
+    "diag_title": "La Solution : SQM (Smart Queue Management)",
+    "diag_content": "La seule vraie solution n'est pas d'avoir \"plus de débit\", mais une meilleure gestion de file d'attente.\n1. Limitez la bande passante : Bridez votre connexion à 95% de sa capacité max pour empêcher le buffer de se remplir.\n2. Activez SQM / QoS : Sur les routeurs haut de gamme (Asus Merlin, OpenWRT), l'option SQM priorise les petits paquets (Jeu/Voix) sur les gros (Téléchargement).",
+    "diag_note": null,
+    "cta_title": "Testez votre résistance à la charge",
+    "cta_desc": "Notre outil simule une charge réseau intense pour voir si votre routeur s'effondre. Avez-vous une note A+ ou F ?",
+    "cta_btn": "TESTER LE BUFFERBLOAT",
+    "content": "Le Bufferbloat est une saturation des tampons de votre routeur qui crée un ping élevé dès que la connexion est sollicitée."
+  },
+  "packet_loss": {
+    "title": "Packet Loss",
+    "badge": "DONNÉES PERDUES",
+    "summary": "Des données perdues en route. Provoque téléportations et déconnexions.",
+    "intro": "Le Packet Loss (Perte de Paquets) se produit lorsqu'une partie des données que vous envoyez (tirs, mouvements) n'arrive jamais au serveur. C'est le \"trou noir\" numérique.",
+    "block_title": "L'Effet \"Téléportation\"",
+    "block_content": "Contrairement au Ping élevé (tout est lent), le Packet Loss crée des ruptures. Vous courrez, et soudain vous êtes ramené 3 mètres en arrière. Pourquoi ? Parce que le serveur n'a jamais reçu l'information \"j'avance\" et vous remet là où il vous a vu pour la dernière fois.",
+    "section_title": "Les Coupables Habituels",
+    "section_intro": null,
+    "section_items": [
+      "<strong>WiFi instable</strong> : Le signal traverse mal un mur = perte de paquet.",
+      "<strong>Câble Ethernet HS</strong> : Un câble pincé ou de mauvaise catégorie (Cat 5 vieux).",
+      "<strong>FAI saturé</strong> : Le nœud de raccordement de votre quartier est plein."
+    ],
+    "section_outro": null,
+    "diag_title": "Comment diagnostiquer ?",
+    "diag_content": "Ouvrez une invite de commande (CMD) et tapez `ping google.com -n 100`. Si vous voyez \"Request timed out\", vous avez du Packet Loss.",
+    "diag_note": "Pour le Gaming, même 1% de perte est inacceptable.",
+    "cta_title": "Vérifiez l'intégrité de votre ligne",
+    "cta_desc": "Notre test analyse la continuité du signal sur 10 secondes pour détecter les micro-coupures invisibles aux speedtests classiques.",
+    "cta_btn": "DÉTECTER LE PACKET LOSS",
+    "content": "La perte de paquets survient quand des données se perdent en route. C'est la cause des freezes et des déconnexions brutales."
+   } 
+ }
 }
