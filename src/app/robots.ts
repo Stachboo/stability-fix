@@ -8,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: '/private/', // Sécurité préventive
     },
     sitemap: 'https://www.stabilityprotocol.space/sitemap.xml',
+    host: 'https://www.stabilityprotocol.space',
   };
 }
